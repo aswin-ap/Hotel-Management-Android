@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hotelmanagement.utils.onDialogYesClick;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -59,9 +58,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         sb.show();
     }
 
-    public FirebaseFirestore getFireStoreInstance() {
+   /* public FirebaseFirestore getFireStoreInstance() {
         return FirebaseFirestore.getInstance();
-    }
+    }*/
 
     public void showToast(Context context, String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();

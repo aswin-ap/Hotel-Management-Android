@@ -19,26 +19,24 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sessionManager = new SessionManager(SplashActivity.this);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
-                /*if (sessionManager.isLoggedin()) {
+                if (sessionManager.isLoggedin()) {
                     Intent i;
-                    if (sessionManager.getUserName().equals("manager")) {
+
                         i = new Intent(SplashActivity.this,
-                                MHomeActivity.class);
-                    } else {
-                        i = new Intent(SplashActivity.this,
-                                SHomeActivity.class);
-                    }
+                                HomeActivity.class);
                     startActivity(i);
-                } else {*/
-                Intent i = new Intent(SplashActivity.this,
-                        LoginActivity.class);
-                startActivity(i);
-                finish();
-                //the current activity will get finished.
+                } else {
+                    Intent i = new Intent(SplashActivity.this,
+                            LoginActivity.class);
+                    startActivity(i);
+                    finish();
+                    //the current activity will get finished.
+                }
             }
         }, SPLASH_SCREEN_TIME_OUT);
     }

@@ -67,24 +67,24 @@
 
             <ImageView
                 android:id="@+id/user"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/ic_drawer_user"
                 app:tint="@android:color/white"
                 android:layout_marginEnd="15dp"
                 />
             <ImageView
                 android:id="@+id/history"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/ic_drawer_past_rides"
                 app:tint="@android:color/white"
                 android:layout_marginEnd="15dp"
                 />
             <ImageView
                 android:id="@+id/logout"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/ic_drawer_log_out"
                 app:tint="@android:color/white" />
         </LinearLayout>

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-    <LinearLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/purple_700"
         android:orientation="vertical"
         android:padding="16dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
 
@@ -90,6 +92,68 @@
         </LinearLayout>
 
 
+</LinearLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_hotels"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="80dp"
+                android:visibility="visible"
+                tools:listitem="@layout/hotel_list" />
+
+            <TextView
+                android:id="@+id/tv_no_internet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="Check your internet connection \nor refresh"
+                android:textColor="@color/captionColor"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/layout_states"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/shimmering_item_shop" />
+
+            <include layout="@layout/shimmering_item_shop" />
+
+            <include layout="@layout/shimmering_item_shop" />
+
+            <include layout="@layout/shimmering_item_shop" />
+
+            <include layout="@layout/shimmering_item_shop" />
+
+            <include layout="@layout/shimmering_item_shop" />
+
+            <include layout="@layout/shimmering_item_shop" />
+
+            <include layout="@layout/shimmering_item_shop" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
     </LinearLayout>

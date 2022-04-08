@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.hotelmanagement.utils.onDialogYesClick;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -21,7 +20,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     // This is for showing the progress
     Dialog mLoadingDialog;
-    onDialogYesClick yesClick;
+
 
 
     public void showLoading(Context context) {

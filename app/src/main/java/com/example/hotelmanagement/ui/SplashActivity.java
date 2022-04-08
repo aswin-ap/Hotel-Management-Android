@@ -30,11 +30,12 @@ public class SplashActivity extends AppCompatActivity {
                         i = new Intent(SplashActivity.this,
                                 HomeActivity.class);
                     startActivity(i);
+                    finishAffinity();
                 } else {
                     Intent i = new Intent(SplashActivity.this,
                             LoginActivity.class);
                     startActivity(i);
-                    finish();
+                    finishAffinity();
                     //the current activity will get finished.
                 }
             }

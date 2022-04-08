@@ -136,7 +136,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container_no_internet"
-        android:name="com.example.hotelmanagement.ui.commen.NoInternetFragment"
+        android:name="com.example.hotelmanagement.ui.common.NoInternetFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />

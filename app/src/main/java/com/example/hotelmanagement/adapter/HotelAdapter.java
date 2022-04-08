@@ -41,7 +41,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         holder.binding.textHotelName.setText(model.getName());
         Log.e("name",""+model.getName());
         holder.binding.textHotelLocation.setText(model.getlocation());
-        holder.binding.textHotelRating.setText(model.getRating());
+        holder.binding.textHotelRating.setText("Rating: "+model.getRating());
         Glide.with(context)
                 .load(model.Image)
                 .circleCrop()

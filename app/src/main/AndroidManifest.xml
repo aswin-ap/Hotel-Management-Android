@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HotelManagement">
         <activity
+            android:name=".ui.HotelDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.history.HistoryActivity"
             android:exported="false" />
         <activity

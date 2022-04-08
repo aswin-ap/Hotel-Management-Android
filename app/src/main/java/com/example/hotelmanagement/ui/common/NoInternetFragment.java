@@ -1,4 +1,4 @@
-package com.example.hotelmanagement.ui.commen;
+package com.example.hotelmanagement.ui.common;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

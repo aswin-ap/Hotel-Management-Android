@@ -1,12 +1,5 @@
 package com.example.hotelmanagement.ui;
 
-import androidx.annotation.NonNull;
-
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -20,6 +13,12 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.hotelmanagement.BaseActivity;
 import com.example.hotelmanagement.R;
@@ -51,7 +50,7 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
     private LocationManager locationManager;
     private String currentLocation;
     private String city;
-     HotelAdapter hotelAdapter;
+    HotelAdapter hotelAdapter;
     private SessionManager sessionManager;
     private final ArrayList<HotelModel> hotelList = new ArrayList<>();
 
@@ -68,7 +67,6 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
         setupObserver();
         btnClick();
     }
-
 
 
     private void btnClick() {
@@ -228,7 +226,7 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
         binding.layoutStates.stopShimmer();
     }
 
-//    private void updateRecyclerView() {
+    //    private void updateRecyclerView() {
 //        stopShimmer();
 //        if (hotelList != null && !hotelList.isEmpty()) {
 //            hotelAdapter.notifyDataSetChanged();
@@ -276,14 +274,24 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
         }).show();
 
     }
+
     private void setupRestaurantsRecyclerView() {
         hotelAdapter = new HotelAdapter(this, hotelList, this);
         binding.recyclerHotels.setLayoutManager(new LinearLayoutManager(this));
         binding.recyclerHotels.setHasFixedSize(true);
         binding.recyclerHotels.setAdapter(hotelAdapter);
     }
+
     @Override
     public void onItemClick(Integer position) {
-
+        HotelModel model = hotelList.get(position);
+        Intent i = new Intent(this, HotelDetailsActivity.class);
+        Bundle data = new Bundle();
+        data.putString("name", model.getName());
+        data.putString("location", model.getlocation());
+        data.putString("rating", model.getRating());
+        data.putString("image", model.getImage());
+        i.putExtras(data);
+        startActivity(i);
     }
 }

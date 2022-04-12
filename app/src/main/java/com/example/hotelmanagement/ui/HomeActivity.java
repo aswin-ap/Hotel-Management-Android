@@ -179,7 +179,9 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
                                                     documentSnapshot.get("name").toString(),
                                                     documentSnapshot.get("image").toString(),
                                                     documentSnapshot.get("location").toString(),
-                                                    documentSnapshot.get("rating").toString()
+                                                    documentSnapshot.get("rating").toString(),
+                                                    documentSnapshot.get("price").toString(),
+                                                    documentSnapshot.get("description").toString()
                                             )
                                     );
                                 }
@@ -291,6 +293,8 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
         data.putString("location", model.getlocation());
         data.putString("rating", model.getRating());
         data.putString("image", model.getImage());
+        data.putString("price", model.getPrice());
+        data.putString("description", model.getDescription());
         i.putExtras(data);
         startActivity(i);
     }

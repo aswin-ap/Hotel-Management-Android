@@ -96,12 +96,13 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="visible"
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -125,35 +126,36 @@
                 android:textSize="18sp"
                 android:visibility="gone" />
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/layout_states"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/shimmering_item_shop" />
+
+                    <include layout="@layout/shimmering_item_shop" />
+
+                    <include layout="@layout/shimmering_item_shop" />
+
+                    <include layout="@layout/shimmering_item_shop" />
+
+                    <include layout="@layout/shimmering_item_shop" />
+
+                    <include layout="@layout/shimmering_item_shop" />
+
+                    <include layout="@layout/shimmering_item_shop" />
+
+                    <include layout="@layout/shimmering_item_shop" />
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
         </LinearLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/layout_states"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <include layout="@layout/shimmering_item_shop" />
-
-            <include layout="@layout/shimmering_item_shop" />
-
-            <include layout="@layout/shimmering_item_shop" />
-
-            <include layout="@layout/shimmering_item_shop" />
-
-            <include layout="@layout/shimmering_item_shop" />
-
-            <include layout="@layout/shimmering_item_shop" />
-
-            <include layout="@layout/shimmering_item_shop" />
-
-            <include layout="@layout/shimmering_item_shop" />
-        </LinearLayout>
-    </com.facebook.shimmer.ShimmerFrameLayout>
     </LinearLayout>

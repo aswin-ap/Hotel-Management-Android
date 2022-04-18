@@ -70,7 +70,7 @@
                 android:layout_height="200dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/splash" />
+                tools:src="@drawable/app_main" />
 
             <TextView
                 android:id="@+id/tv_hotel_name"

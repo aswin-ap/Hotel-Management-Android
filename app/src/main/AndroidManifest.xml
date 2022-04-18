@@ -15,6 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HotelManagement">
         <activity
+            android:name=".ui.BookingSuccessActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.PaymentActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

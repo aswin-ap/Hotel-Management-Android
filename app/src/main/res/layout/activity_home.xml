@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center|start"
                     android:textColor="@android:color/white"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     tools:text="CAN" />
 
 
@@ -104,6 +104,18 @@
             android:layout_height="wrap_content"
             android:visibility="visible"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Recommended for you"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_hotels"

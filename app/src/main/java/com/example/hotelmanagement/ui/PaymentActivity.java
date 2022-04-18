@@ -1,19 +1,20 @@
 package com.example.hotelmanagement.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 
-import com.example.hotelmanagement.R;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.hotelmanagement.databinding.ActivityPaymentBinding;
 import com.example.hotelmanagement.utils.NetworkManager;
 
 public class PaymentActivity extends AppCompatActivity {
     private ActivityPaymentBinding binding;
-    private String total;
     private String type;
+    String checkIn, checkOut, total;
+    int adult, children, room;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,6 @@ public class PaymentActivity extends AppCompatActivity {
                     binding.radioCod.setChecked(false);
                 } else {
                     binding.cardDebitDetails.setVisibility(View.GONE);
-
                 }
             }
         });
@@ -58,8 +58,8 @@ public class PaymentActivity extends AppCompatActivity {
                         if (!binding.etCvv.getText().toString().isEmpty()) {
                             type = "card";
                             if (NetworkManager.isNetworkAvailable(PaymentActivity.this)) {
-                                //goToOrderSuccess();
-                            }else {
+                                goToOrderSuccess();
+                            } else {
                                 binding.containerNoInternet.setVisibility(View.VISIBLE);
                             }
                         } else binding.etCvv.setError("Please enter CVV");
@@ -73,7 +73,7 @@ public class PaymentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 type = "direct";
                 if (NetworkManager.isNetworkAvailable(PaymentActivity.this)) {
-                   // goToOrderSuccess();
+                     goToOrderSuccess();
                 } else {
                     binding.containerNoInternet.setVisibility(View.VISIBLE);
                 }
@@ -81,12 +81,32 @@ public class PaymentActivity extends AppCompatActivity {
         });
     }
 
+    private void goToOrderSuccess() {
+        Intent intent = new Intent(this, BookingSuccessActivity.class);
+        intent.putExtra("checkIn", checkIn);
+        intent.putExtra("checkOut", checkOut);
+        intent.putExtra("adult", adult);
+        intent.putExtra("children", children);
+        intent.putExtra("rooms", room);
+        intent.putExtra("total", total);
+        intent.putExtra("type", type);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finishAffinity();
+    }
+
     private void getFromIntent() {
         try {
-
+            Bundle bundle = getIntent().getExtras();
+            checkIn = bundle.getString("checkIn");
+            checkOut = bundle.getString("checkOut");
+            adult = bundle.getInt("adult");
+            children = bundle.getInt("children");
+            room = bundle.getInt("rooms");
+            total = bundle.getString("total");
         } catch (Exception e) {
             e.printStackTrace();
         }
-       // binding.tvCash.setText("Amount to be paid : £"+ total);
+        binding.tvCash.setText("Amount to be paid : £"+ total);
     }
 }

@@ -49,7 +49,14 @@ public class BookingActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 if (totalGuests() > 0) {
-                  showConfirmDialog();
+                    Intent intent = new Intent(BookingActivity.this, SummaryActivity.class);
+                    intent.putExtra("checkIn", checkIn);
+                    intent.putExtra("checkOut", checkOut);
+                    intent.putExtra("adult", adult);
+                    intent.putExtra("children", children);
+                    intent.putExtra("rooms", room);
+                    intent.putExtra("total", calculatedPrice);
+                    startActivity(intent);
                 } else
                     showToast(BookingActivity.this, "Please add guests first");
             }
@@ -141,13 +148,6 @@ public class BookingActivity extends BaseActivity {
         checkOut = dateFormat.format(tomorrow);
         binding.tvCheckOut.setText(dateFormat.format(tomorrow));
     }
-
-   /* private void updateRoomLimit() {
-        int roomCount = Integer.parseInt(binding.tvRooms.getText().toString());
-        maxLimit = roomCount * 3;
-        calculatedPrice = String.valueOf(Integer.parseInt(price) * roomCount);
-        binding.tvPrice.setText("Total amount: " + calculatedPrice + "£");
-    }*/
 
     private void updateRoomLimit() {
         calculatedPrice = price;

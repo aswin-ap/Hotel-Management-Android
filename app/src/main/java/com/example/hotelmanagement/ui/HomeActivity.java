@@ -216,6 +216,7 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
     }
 
     private void showShimmer() {
+//        binding.swipe_refresh_layout
         binding.layoutStates.setVisibility(View.VISIBLE);
         binding.recyclerHotels.setVisibility(View.GONE);
         binding.tvNoInternet.setVisibility(View.GONE);

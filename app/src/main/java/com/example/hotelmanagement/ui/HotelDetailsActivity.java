@@ -33,6 +33,8 @@ public class HotelDetailsActivity extends AppCompatActivity {
                 Bundle data = new Bundle();
                 data.putString("name", b.getString("name"));
                 data.putString("price", b.getString("price"));
+                data.putString("location", b.getString("location"));
+                data.putString("image", b.getString("image"));
                 i.putExtras(data);
                 startActivity(i);
             }

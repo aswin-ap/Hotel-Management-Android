@@ -21,7 +21,7 @@ import java.util.Locale;
 public class BookingActivity extends BaseActivity {
     private ActivityBookingBinding binding;
     Bundle b;
-    String price, checkIn, checkOut, calculatedPrice;
+    String price, checkIn, checkOut, calculatedPrice,image,location,name;
     private int maxLimit = 0;
     private int totalGuests = 0;
     private final int roomMaxLimit = 10;
@@ -176,6 +176,9 @@ public class BookingActivity extends BaseActivity {
         binding.tvHotelName.setText(b.getString("name"));
         price = b.getString("price");
         calculatedPrice = price;
+        name= b.getString("name");
+        image= b.getString("image");
+        location= b.getString("location");
     }
 
     private void showDatePicker(String from) {

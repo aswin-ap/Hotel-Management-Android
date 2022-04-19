@@ -23,7 +23,7 @@ public class BookingSuccessActivity extends BaseActivity {
     private ActivityBookingDoneBinding binding;
     private String total;
     private String type;
-    String checkIn, checkOut;
+    String checkIn, checkOut,image,location,name;
     int adult, children, room;
     private FirebaseFirestore fb;
     private SessionManager sessionManager;
@@ -51,6 +51,10 @@ public class BookingSuccessActivity extends BaseActivity {
         bookingItem.put("type", type);
         bookingItem.put("status", "in");
         bookingItem.put("userid", sessionManager.getUserId());
+        bookingItem.put("shopName", name);
+        bookingItem.put("shopLocation", location);
+        bookingItem.put("shopImage", image);
+
         Log.d("orderData", bookingItem.toString());
 
         fb.collection("bookings")
@@ -92,6 +96,9 @@ public class BookingSuccessActivity extends BaseActivity {
             room = bundle.getInt("rooms");
             total = bundle.getString("total");
             type = bundle.getString("type");
+            name= bundle.getString("name");
+            image= bundle.getString("image");
+            location= bundle.getString("location");
         } catch (Exception e) {
             e.printStackTrace();
         }

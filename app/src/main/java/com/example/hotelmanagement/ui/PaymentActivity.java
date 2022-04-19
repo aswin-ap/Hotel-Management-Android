@@ -13,7 +13,7 @@ import com.example.hotelmanagement.utils.NetworkManager;
 public class PaymentActivity extends AppCompatActivity {
     private ActivityPaymentBinding binding;
     private String type;
-    String checkIn, checkOut, total;
+    String checkIn, checkOut, total,image,location,name;
     int adult, children, room;
 
     @Override
@@ -90,6 +90,9 @@ public class PaymentActivity extends AppCompatActivity {
         intent.putExtra("rooms", room);
         intent.putExtra("total", total);
         intent.putExtra("type", type);
+        intent.putExtra("name", name);
+        intent.putExtra("location", location);
+        intent.putExtra("image",image);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finishAffinity();
@@ -104,6 +107,9 @@ public class PaymentActivity extends AppCompatActivity {
             children = bundle.getInt("children");
             room = bundle.getInt("rooms");
             total = bundle.getString("total");
+            name= bundle.getString("name");
+            image= bundle.getString("image");
+            location= bundle.getString("location");
         } catch (Exception e) {
             e.printStackTrace();
         }

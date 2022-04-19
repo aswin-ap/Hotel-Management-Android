@@ -56,6 +56,9 @@ public class BookingActivity extends BaseActivity {
                     intent.putExtra("children", children);
                     intent.putExtra("rooms", room);
                     intent.putExtra("total", calculatedPrice);
+                    intent.putExtra("name", name);
+                    intent.putExtra("location", location);
+                    intent.putExtra("image",image);
                     startActivity(intent);
                 } else
                     showToast(BookingActivity.this, "Please add guests first");
@@ -239,6 +242,9 @@ public class BookingActivity extends BaseActivity {
                 intent.putExtra("children", children);
                 intent.putExtra("rooms", room);
                 intent.putExtra("total", calculatedPrice);
+                intent.putExtra("name", name);
+                intent.putExtra("location", location);
+                intent.putExtra("image",image);
                 startActivity(intent);
                 dialogInterface.dismiss();
             }

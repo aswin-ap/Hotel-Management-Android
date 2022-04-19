@@ -12,7 +12,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class SummaryActivity extends AppCompatActivity {
 
-    String checkIn, checkOut, total;
+    String checkIn, checkOut, total,image,location,name;
     int adult, children, room;
     ActivitySummaryBinding binding;
     String newline = System.getProperty("line.separator");
@@ -52,6 +52,9 @@ public class SummaryActivity extends AppCompatActivity {
         children = bundle.getInt("children");
         room = bundle.getInt("rooms");
         total = bundle.getString("total");
+        name= bundle.getString("name");
+        image= bundle.getString("image");
+        location= bundle.getString("location");
     }
 
     public void showConfirmDialog() {
@@ -68,6 +71,9 @@ public class SummaryActivity extends AppCompatActivity {
                 intent.putExtra("children", children);
                 intent.putExtra("rooms", room);
                 intent.putExtra("total", total);
+                intent.putExtra("name", name);
+                intent.putExtra("location", location);
+                intent.putExtra("image",image);
                 startActivity(intent);
                 dialogInterface.dismiss();
             }

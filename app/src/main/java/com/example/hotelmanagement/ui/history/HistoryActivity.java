@@ -76,6 +76,11 @@ public class HistoryActivity extends BaseActivity {
                             if (task.isSuccessful()) {
                                 historyList.clear();
                                 for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+Log.e("user id =",documentSnapshot.get("userid").toString());
+Log.e("user id3 =", String.valueOf((documentSnapshot.get("userid")).equals(sessionManager.getUserId())));
+                                    Log.e("user id 1 =",sessionManager.getUserId());
+                                    if((documentSnapshot.get("userid")).equals(sessionManager.getUserId())){
+
                                     historyList.add(
                                             new HistoryModel(
                                                     documentSnapshot.get("rooms").toString(),
@@ -94,7 +99,7 @@ public class HistoryActivity extends BaseActivity {
                                                     )
                                     );
                                     Log.e("historyList=", String.valueOf(historyList));
-                                }
+                                }}
                                 hideLoading();
                                 if (historyList.size() > 0) {
                                     binding.recyclerHistory.setVisibility(View.VISIBLE);
@@ -103,7 +108,7 @@ public class HistoryActivity extends BaseActivity {
                                 } else {
                                     binding.recyclerHistory.setVisibility(View.GONE);
 //                                    binding.ivNoData.setVisibility(View.VISIBLE);
-                                    showToast(HistoryActivity.this, getString(R.string.no_items));
+                                    showToast(HistoryActivity.this, "Sorry, No History available");
                                 }
                             }
                         }

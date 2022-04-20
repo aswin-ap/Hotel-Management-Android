@@ -23,14 +23,14 @@
              android:layout_gravity="center"
              android:visibility="visible" />-->
 
-<!--        <com.github.ybq.android.spinkit.SpinKitView-->
-<!--            style="@style/SpinKitView.Large.DoubleBounce"-->
-<!--            android:id="@+id/avloadingIndicatorView"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:visibility="visible"-->
-<!--            app:SpinKit_Color="@color/teal_200" />-->
+        <com.github.ybq.android.spinkit.SpinKitView
+            style="@style/SpinKitView.Large.DoubleBounce"
+            android:id="@+id/avloadingIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            app:SpinKit_Color="@color/purple_500" />
 
 
         <!--       <com.wang.avi.AVLoadingIndicatorView-->

@@ -29,88 +29,93 @@
                 android:fontFamily="sans-serif"
                 android:textAllCaps="true"
                 android:textSize="15sp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 />
             <TextView
                 android:id="@+id/tv_hotel_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
+                android:textColor="@color/captionColor"
                 tools:text="hotel name"
                 android:fontFamily="sans-serif"
                 android:textAllCaps="true"
                 android:textSize="11sp"
-                android:layout_marginLeft="20dp"
+
+                android:layout_marginLeft="10dp"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="5dp"
-                android:weightSum="2">
+                >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:ellipsize="marquee"
-                    android:gravity="start"
-                    android:singleLine="true"
-                    android:text="Booked Date:"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    />
 
                 <TextView
                     android:id="@+id/tv_booked_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:ellipsize="marquee"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="17-dec-2022" />
+
+                <TextView
+                    android:id="@+id/tv_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:ellipsize="marquee"
                     android:gravity="end"
-                    android:singleLine="true"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    tools:text="17-dec-2022" />
-
+                    android:textColor="@color/colorAccentLight1"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="10dp"
+                    tools:text="1800E" />
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
                 android:weightSum="2">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="20sp"
+                    android:src="@drawable/metrize"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
-                    android:layout_weight="1"
                     android:ellipsize="marquee"
                     android:gravity="start"
                     android:singleLine="true"
                     android:text="Check-In :"
                     android:textColor="@color/black"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                   />
 
                 <TextView
                     android:id="@+id/tv_checkIn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
-                    android:layout_weight="1"
                     android:ellipsize="marquee"
-                    android:gravity="end"
                     android:singleLine="true"
                     android:textColor="@color/black"
                     android:textSize="15sp"
+                    android:textAllCaps="true"
                     tools:text="17-dec-2022" />
 
 
@@ -120,47 +125,88 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
                 android:weightSum="2">
-
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="20sp"
+                    android:src="@drawable/metrize"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
-                    android:layout_weight="1"
                     android:ellipsize="marquee"
                     android:gravity="start"
                     android:singleLine="true"
                     android:text="Check-Out :"
                     android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_checkOut"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:layout_weight="1"
                     android:ellipsize="marquee"
-                    android:gravity="end"
                     android:singleLine="true"
+                    android:textAllCaps="true"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     tools:text="19-dec-2022" />
 
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
                 android:weightSum="2">
-
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="20sp"
+                    android:src="@drawable/metrize"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:ellipsize="marquee"
+                    android:gravity="start"
+                    android:singleLine="true"
+                    android:text="Payment Type :"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_payment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+
+                    android:ellipsize="marquee"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:text="Direct" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:weightSum="2">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="20sp"
+                    android:src="@drawable/metrize"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:ellipsize="marquee"
@@ -168,7 +214,7 @@
                     android:singleLine="true"
                     android:text="Rooms :"
                     android:textColor="@color/black"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                      />
 
                 <TextView
@@ -192,12 +238,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
                 android:weightSum="2">
-
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="20sp"
+                    android:src="@drawable/metrize"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:ellipsize="marquee"
@@ -205,7 +255,7 @@
                     android:singleLine="true"
                     android:text="Guests :"
                     android:textColor="@color/black"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                   />
 
                 <TextView
@@ -222,75 +272,8 @@
 
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:ellipsize="marquee"
-                    android:gravity="start"
-                    android:singleLine="true"
-                    android:text="Payment Type :"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_payment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:ellipsize="marquee"
-                    android:gravity="end"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    tools:text="Direct" />
 
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:ellipsize="marquee"
-                    android:gravity="start"
-                    android:singleLine="true"
-                    android:text="Total amount :"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_amount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:ellipsize="marquee"
-                    android:gravity="end"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    tools:text="Direct" />
-
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

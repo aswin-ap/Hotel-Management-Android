@@ -42,13 +42,14 @@ public class HistoryActivity extends BaseActivity {
 
         binding = ActivityHistoryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        showLoading(HistoryActivity.this);
         sessionManager = new SessionManager(HistoryActivity.this);
         fb = getFireStoreInstance();
         setupObserver();
         setupHistoryRecyclerView();
 
     }
+
     private void setupHistoryRecyclerView() {
         historyAdapter = new HistoryAdapter(this, historyList);
         binding.recyclerHistory.setLayoutManager(new LinearLayoutManager(this));
@@ -60,8 +61,10 @@ public class HistoryActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
-            }}));
+            }
+        }));
     }
+
     private void setupObserver() {
 
         if (NetworkManager.isNetworkAvailable(HistoryActivity.this)) {
@@ -74,32 +77,34 @@ public class HistoryActivity extends BaseActivity {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
+                                hideLoading();
                                 historyList.clear();
                                 for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-Log.e("user id =",documentSnapshot.get("userid").toString());
-Log.e("user id3 =", String.valueOf((documentSnapshot.get("userid")).equals(sessionManager.getUserId())));
-                                    Log.e("user id 1 =",sessionManager.getUserId());
-                                    if((documentSnapshot.get("userid")).equals(sessionManager.getUserId())){
+                                    Log.e("user id =", documentSnapshot.get("userid").toString());
+                                    Log.e("user id3 =", String.valueOf((documentSnapshot.get("userid")).equals(sessionManager.getUserId())));
+                                    Log.e("user id 1 =", sessionManager.getUserId());
+                                    if ((documentSnapshot.get("userid")).equals(sessionManager.getUserId())) {
 
-                                    historyList.add(
-                                            new HistoryModel(
-                                                    documentSnapshot.get("rooms").toString(),
-                                                    documentSnapshot.get("children").toString(),
-                                                    documentSnapshot.get("check_out").toString(),
-                                                    documentSnapshot.get("check_in").toString(),
-                                                    documentSnapshot.get("booked_on").toString(),
-                                                    documentSnapshot.get("amount").toString(),
-                                                    documentSnapshot.get("adult").toString(),
-                                                    documentSnapshot.get("shopImage").toString(),
-                                                    documentSnapshot.get("shopLocation").toString(),
-                                                    documentSnapshot.get("shopName").toString(),
-                                                    documentSnapshot.get("status").toString(),
-                                                    documentSnapshot.get("type").toString(),
-                                                    documentSnapshot.get("userid").toString()
-                                                    )
-                                    );
-                                    Log.e("historyList=", String.valueOf(historyList));
-                                }}
+                                        historyList.add(
+                                                new HistoryModel(
+                                                        documentSnapshot.get("rooms").toString(),
+                                                        documentSnapshot.get("children").toString(),
+                                                        documentSnapshot.get("check_out").toString(),
+                                                        documentSnapshot.get("check_in").toString(),
+                                                        documentSnapshot.get("booked_on").toString(),
+                                                        documentSnapshot.get("amount").toString(),
+                                                        documentSnapshot.get("adult").toString(),
+                                                        documentSnapshot.get("shopImage").toString(),
+                                                        documentSnapshot.get("shopLocation").toString(),
+                                                        documentSnapshot.get("shopName").toString(),
+                                                        documentSnapshot.get("status").toString(),
+                                                        documentSnapshot.get("type").toString(),
+                                                        documentSnapshot.get("userid").toString()
+                                                )
+                                        );
+                                        Log.e("historyList=", String.valueOf(historyList));
+                                    }
+                                }
                                 hideLoading();
                                 if (historyList.size() > 0) {
                                     binding.recyclerHistory.setVisibility(View.VISIBLE);

@@ -24,7 +24,7 @@
              android:visibility="visible" />-->
 
         <com.github.ybq.android.spinkit.SpinKitView
-            style="@style/SpinKitView.Large.DoubleBounce"
+            style="@style/SpinKitView.Large.CubeGrid"
             android:id="@+id/avloadingIndicatorView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

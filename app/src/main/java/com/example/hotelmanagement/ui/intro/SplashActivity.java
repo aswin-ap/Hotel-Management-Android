@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hotelmanagement.R;
 import com.example.hotelmanagement.data.prefrence.SessionManager;
-import com.example.hotelmanagement.ui.HomeActivity;
+import com.example.hotelmanagement.ui.hotel.HomeActivity;
 import com.example.hotelmanagement.ui.auth.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {

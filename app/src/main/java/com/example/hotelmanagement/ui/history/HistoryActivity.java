@@ -1,7 +1,6 @@
 package com.example.hotelmanagement.ui.history;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
@@ -10,14 +9,10 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.hotelmanagement.BaseActivity;
-import com.example.hotelmanagement.R;
 import com.example.hotelmanagement.adapter.HistoryAdapter;
-import com.example.hotelmanagement.adapter.HotelAdapter;
 import com.example.hotelmanagement.data.model.HistoryModel;
-import com.example.hotelmanagement.data.model.HotelModel;
 import com.example.hotelmanagement.data.prefrence.SessionManager;
 import com.example.hotelmanagement.databinding.ActivityHistoryBinding;
-import com.example.hotelmanagement.ui.HomeActivity;
 import com.example.hotelmanagement.utils.NetworkManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;

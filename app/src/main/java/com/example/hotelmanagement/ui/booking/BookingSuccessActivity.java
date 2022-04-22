@@ -1,4 +1,4 @@
-package com.example.hotelmanagement.ui;
+package com.example.hotelmanagement.ui.booking;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import com.example.hotelmanagement.BaseActivity;
 import com.example.hotelmanagement.R;
 import com.example.hotelmanagement.data.prefrence.SessionManager;
 import com.example.hotelmanagement.databinding.ActivityBookingDoneBinding;
+import com.example.hotelmanagement.ui.hotel.HomeActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;

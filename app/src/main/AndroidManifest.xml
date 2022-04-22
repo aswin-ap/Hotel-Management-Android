@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HotelManagement">
         <activity
-            android:name=".ui.BookingSuccessActivity"
+            android:name=".ui.booking.BookingSuccessActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -27,11 +27,11 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.BookingActivity"
+            android:name=".ui.booking.BookingActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.HotelDetailsActivity"
+            android:name=".ui.hotel.HotelDetailsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -47,7 +47,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.HomeActivity"
+            android:name=".ui.hotel.HomeActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

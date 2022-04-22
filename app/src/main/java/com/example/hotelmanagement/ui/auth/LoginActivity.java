@@ -1,7 +1,6 @@
 package com.example.hotelmanagement.ui.auth;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import com.example.hotelmanagement.BaseActivity;
 import com.example.hotelmanagement.R;
 import com.example.hotelmanagement.data.prefrence.SessionManager;
 import com.example.hotelmanagement.databinding.ActivityLoginBinding;
-import com.example.hotelmanagement.ui.HomeActivity;
+import com.example.hotelmanagement.ui.hotel.HomeActivity;
 import com.example.hotelmanagement.utils.NetworkManager;
 import com.example.hotelmanagement.utils.Validation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,7 +28,7 @@ public class LoginActivity extends BaseActivity {
     private ActivityLoginBinding binding;
     private long mLastClickTime = 0;
     private final FirebaseFirestore fb = getFireStoreInstance();
-    private boolean isMatch;
+    private boolean isMatch = false;
     private SessionManager sessionManager;
 
     @Override
@@ -91,8 +90,7 @@ public class LoginActivity extends BaseActivity {
                                         showToast(LoginActivity.this, "Login Successfully");
                                         startActivity(intent);
                                         finishAffinity();
-                                    } else
-                                        isMatch = false;
+                                    }
                                 }
 
                                 if (!isMatch)

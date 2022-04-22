@@ -1,4 +1,4 @@
-package com.example.hotelmanagement.ui;
+package com.example.hotelmanagement.ui.hotel;
 
 import android.Manifest;
 import android.content.Context;

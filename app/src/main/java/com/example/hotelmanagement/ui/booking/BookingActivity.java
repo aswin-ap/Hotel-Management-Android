@@ -1,4 +1,4 @@
-package com.example.hotelmanagement.ui;
+package com.example.hotelmanagement.ui.booking;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
@@ -9,7 +9,7 @@ import android.widget.DatePicker;
 
 import com.example.hotelmanagement.BaseActivity;
 import com.example.hotelmanagement.databinding.ActivityBookingBinding;
-import com.example.hotelmanagement.ui.auth.LoginActivity;
+import com.example.hotelmanagement.ui.SummaryActivity;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.text.DateFormat;
@@ -21,7 +21,7 @@ import java.util.Locale;
 public class BookingActivity extends BaseActivity {
     private ActivityBookingBinding binding;
     Bundle b;
-    String price, checkIn, checkOut, calculatedPrice,image,location,name;
+    String price, checkIn, checkOut, calculatedPrice, image, location, name;
     private int maxLimit = 0;
     private int totalGuests = 0;
     private final int roomMaxLimit = 10;
@@ -58,7 +58,7 @@ public class BookingActivity extends BaseActivity {
                     intent.putExtra("total", calculatedPrice);
                     intent.putExtra("name", name);
                     intent.putExtra("location", location);
-                    intent.putExtra("image",image);
+                    intent.putExtra("image", image);
                     startActivity(intent);
                 } else
                     showToast(BookingActivity.this, "Please add guests first");
@@ -73,9 +73,9 @@ public class BookingActivity extends BaseActivity {
                         adult++;
                         binding.tvAdult.setText(String.valueOf(adult));
                     } else
-                        showToast(BookingActivity.this, "Maximum number of peoples added");
+                        showToast(BookingActivity.this, "Maximum number of guests added");
                 } else
-                    showToast(BookingActivity.this, "Maximum limit is reached");
+                    showToast(BookingActivity.this, "Can't add more people to this room");
             }
         });
 
@@ -85,8 +85,7 @@ public class BookingActivity extends BaseActivity {
                 if (adult != 0) {
                     adult--;
                     binding.tvAdult.setText(String.valueOf(adult));
-                } else
-                    showToast(BookingActivity.this, "Minimum limit is reached");
+                }
             }
         });
 
@@ -98,9 +97,9 @@ public class BookingActivity extends BaseActivity {
                         children++;
                         binding.tvChildren.setText(String.valueOf(children));
                     } else
-                        showToast(BookingActivity.this, "Maximum number of peoples added");
+                        showToast(BookingActivity.this, "Maximum number of guests added");
                 } else
-                    showToast(BookingActivity.this, "Maximum limit is reached");
+                    showToast(BookingActivity.this, "Can't add more people to this room");
             }
         });
 
@@ -110,8 +109,7 @@ public class BookingActivity extends BaseActivity {
                 if (children != 0) {
                     children--;
                     binding.tvChildren.setText(String.valueOf(children));
-                } else
-                    showToast(BookingActivity.this, "Minimum limit is reached");
+                }
             }
         });
 
@@ -123,7 +121,7 @@ public class BookingActivity extends BaseActivity {
                     binding.tvRooms.setText(String.valueOf(room));
                     updateRoomLimit();
                 } else
-                    showToast(BookingActivity.this, "You cannot add more rooms");
+                    showToast(BookingActivity.this, "You cannot add more than 10 rooms");
             }
         });
 
@@ -134,8 +132,7 @@ public class BookingActivity extends BaseActivity {
                     room--;
                     binding.tvRooms.setText(String.valueOf(room));
                     updateRoomLimit();
-                } else
-                    showToast(BookingActivity.this, "Minimum limit is reached");
+                }
             }
         });
     }
@@ -179,9 +176,9 @@ public class BookingActivity extends BaseActivity {
         binding.tvHotelName.setText(b.getString("name"));
         price = b.getString("price");
         calculatedPrice = price;
-        name= b.getString("name");
-        image= b.getString("image");
-        location= b.getString("location");
+        name = b.getString("name");
+        image = b.getString("image");
+        location = b.getString("location");
     }
 
     private void showDatePicker(String from) {
@@ -230,7 +227,7 @@ public class BookingActivity extends BaseActivity {
 
     public void showConfirmDialog() {
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(BookingActivity.this);
-        builder.setTitle("Confirm");
+        builder.setTitle("Booking Confirmation");
         builder.setMessage("Are you sure to confirm the booking?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
@@ -244,7 +241,7 @@ public class BookingActivity extends BaseActivity {
                 intent.putExtra("total", calculatedPrice);
                 intent.putExtra("name", name);
                 intent.putExtra("location", location);
-                intent.putExtra("image",image);
+                intent.putExtra("image", image);
                 startActivity(intent);
                 dialogInterface.dismiss();
             }

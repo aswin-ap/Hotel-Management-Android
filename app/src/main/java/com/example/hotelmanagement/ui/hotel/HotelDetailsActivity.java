@@ -1,4 +1,4 @@
-package com.example.hotelmanagement.ui;
+package com.example.hotelmanagement.ui.hotel;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.hotelmanagement.databinding.ActivityHotelDetailsBinding;
+import com.example.hotelmanagement.ui.booking.BookingActivity;
 
 public class HotelDetailsActivity extends AppCompatActivity {
     private ActivityHotelDetailsBinding binding;

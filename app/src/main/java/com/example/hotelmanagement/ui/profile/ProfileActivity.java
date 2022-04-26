@@ -41,6 +41,7 @@ public class ProfileActivity extends BaseActivity {
 
     private void setupObserver() {
         if (NetworkManager.isNetworkAvailable(ProfileActivity.this)) {
+            binding.containerNoInternet.setVisibility(View.GONE);
             showLoading(this);
             fb.collection("User")
                     .get()
@@ -68,6 +69,7 @@ public class ProfileActivity extends BaseActivity {
             });
         } else {
             showSnackBar(binding.getRoot(), getString(R.string.check_internet));
+            binding.containerNoInternet.setVisibility(View.VISIBLE);
         }
     }
 
@@ -81,10 +83,11 @@ public class ProfileActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (NetworkManager.isNetworkAvailable(ProfileActivity.this)) {
+                    binding.containerNoInternet.setVisibility(View.GONE);
                     setupEditFields();
                     binding.layoutConfirmPassword.setVisibility(View.VISIBLE);
                 } else
-                    showSnackBar(binding.getRoot(), getString(R.string.check_internet));
+                    binding.containerNoInternet.setVisibility(View.VISIBLE);
             }
         });
         binding.buttonUpdate.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +108,7 @@ public class ProfileActivity extends BaseActivity {
 
     private void updateProfile() {
         if (NetworkManager.isNetworkAvailable(ProfileActivity.this)) {
+            binding.containerNoInternet.setVisibility(View.GONE);
             showLoading(this);
             Map<String, Object> user = new HashMap<>();
             user.put("username", binding.editName.getText().toString());

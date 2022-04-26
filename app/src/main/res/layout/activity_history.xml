@@ -60,4 +60,12 @@
         android:src="@drawable/no_data"
         android:visibility="gone"
         android:scaleType="centerInside"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container_no_internet"
+        android:name="com.example.hotelmanagement.ui.NoInternetFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
 </LinearLayout>

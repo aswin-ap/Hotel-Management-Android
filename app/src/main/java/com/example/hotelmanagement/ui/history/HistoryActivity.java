@@ -63,6 +63,7 @@ public class HistoryActivity extends BaseActivity {
     private void setupObserver() {
 
         if (NetworkManager.isNetworkAvailable(HistoryActivity.this)) {
+            binding.containerNoInternet.setVisibility(View.GONE);
             if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
             }
             mLastClickTime = SystemClock.elapsedRealtime();
@@ -120,7 +121,7 @@ public class HistoryActivity extends BaseActivity {
                 }
             });
         } else {
-
+            binding.containerNoInternet.setVisibility(View.VISIBLE);
         }
     }
 }

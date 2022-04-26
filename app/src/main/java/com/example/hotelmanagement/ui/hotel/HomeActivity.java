@@ -76,12 +76,12 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
                 onLogOutPress();
             }
         });
-        binding.history.setOnClickListener(new View.OnClickListener() {
+        /*binding.history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, HistoryActivity.class));
             }
-        });
+        });*/
         binding.user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

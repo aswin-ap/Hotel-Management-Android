@@ -14,7 +14,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class SummaryActivity extends AppCompatActivity {
 
-    String checkIn, checkOut, total, image, location, name;
+    String checkIn, checkOut, total, image, location, name, roomType;
     int adult, children, room;
     ActivitySummaryBinding binding;
     private SummaryDatabase db;
@@ -36,7 +36,7 @@ public class SummaryActivity extends AppCompatActivity {
         builder.append("Children  " + "X" + children);
         binding.tvCheckIn.setText(checkIn);
         binding.tvCheckOut.setText(checkOut);
-        binding.tvRooms.setText(String.valueOf(room));
+        binding.tvRooms.setText(roomType + " X " + room);
         binding.tvGuests.setText(builder);
         binding.tvTotal.setText(String.valueOf(total) + "£");
         binding.btnPay.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +59,12 @@ public class SummaryActivity extends AppCompatActivity {
         name = bundle.getString("name");
         image = bundle.getString("image");
         location = bundle.getString("location");
+        if (bundle.getInt("roomType") == 1) {
+            roomType = "Single";
+        } else
+            roomType = "Double";
+
+
     }
 
     public void showConfirmDialog() {
@@ -102,6 +108,7 @@ public class SummaryActivity extends AppCompatActivity {
         intent.putExtra("name", name);
         intent.putExtra("location", location);
         intent.putExtra("image", image);
+        intent.putExtra("roomType", roomType);
         startActivity(intent);
     }
 

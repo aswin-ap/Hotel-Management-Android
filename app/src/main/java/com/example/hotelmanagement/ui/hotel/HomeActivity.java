@@ -257,7 +257,7 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
 
     public void onLogOutPress() {
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(HomeActivity.this);
-        builder.setTitle("Logout ?");
+        builder.setTitle("Logout");
         builder.setMessage("Are you sure want to Logout ?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override

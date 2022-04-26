@@ -1,12 +1,12 @@
 package com.example.hotelmanagement.ui.history;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.hotelmanagement.BaseActivity;
 import com.example.hotelmanagement.adapter.HistoryAdapter;
@@ -94,7 +94,8 @@ public class HistoryActivity extends BaseActivity {
                                                         documentSnapshot.get("shopName").toString(),
                                                         documentSnapshot.get("status").toString(),
                                                         documentSnapshot.get("type").toString(),
-                                                        documentSnapshot.get("userid").toString()
+                                                        documentSnapshot.get("userid").toString(),
+                                                        documentSnapshot.get("roomType").toString()
                                                 )
                                         );
                                         Log.e("historyList=", String.valueOf(historyList));
@@ -103,11 +104,11 @@ public class HistoryActivity extends BaseActivity {
                                 hideLoading();
                                 if (historyList.size() > 0) {
                                     binding.recyclerHistory.setVisibility(View.VISIBLE);
-//                                    binding.ivNoData.setVisibility(View.GONE);
+                                    binding.ivNoData.setVisibility(View.GONE);
                                     historyAdapter.notifyDataSetChanged();
                                 } else {
                                     binding.recyclerHistory.setVisibility(View.GONE);
-//                                    binding.ivNoData.setVisibility(View.VISIBLE);
+                                    binding.ivNoData.setVisibility(View.VISIBLE);
                                     showToast(HistoryActivity.this, "Sorry, No History available");
                                 }
                             }

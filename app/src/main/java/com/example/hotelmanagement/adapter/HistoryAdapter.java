@@ -1,20 +1,20 @@
 package com.example.hotelmanagement.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.bumptech.glide.Glide;
+
 import com.example.hotelmanagement.data.model.HistoryModel;
 import com.example.hotelmanagement.databinding.BookingHistoryItemBinding;
-import com.example.hotelmanagement.utils.OnItemClickListener;
+
 import java.util.List;
 
 
-public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HotelViewHolder>{
+public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HotelViewHolder> {
     private Context context;
 
     private List<HistoryModel> list;
@@ -40,16 +40,15 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HotelVie
         holder.binding.tvBookedDate.setText(model.getBooked_on());
         holder.binding.tvCheckIn.setText(model.getCheck_in());
         holder.binding.tvCheckOut.setText(model.getCheck_out());
-        holder.binding.tvRooms.setText(model.getRooms());
+        holder.binding.tvRooms.setText(model.getRoomType() + " X " + model.getRooms());
         holder.binding.tvHotelLocation.setText(model.getShopLocation());
         holder.binding.tvPayment.setText(model.getType());
-        holder.binding.tvAmount.setText(model.getAmount()+ "£");
+        holder.binding.tvAmount.setText(model.getAmount() + "£");
 
         StringBuilder builder = new StringBuilder();
         builder.append("Adults  " + "X" + model.adult + newline);
         builder.append("Children  " + "X" + model.children);
         holder.binding.tvGuests.setText(builder);
-
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

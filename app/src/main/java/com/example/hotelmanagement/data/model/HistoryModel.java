@@ -14,6 +14,24 @@ public class HistoryModel {
     public String status;
     public String type;
     public String userid;
+    private String roomType;
+
+    public HistoryModel(String rooms, String children, String check_out, String check_in, String booked_on, String amount, String adult, String shopImage, String shopLocation, String shopName, String status, String type, String userid, String roomType) {
+        this.rooms = rooms;
+        this.children = children;
+        this.check_out = check_out;
+        this.check_in = check_in;
+        this.booked_on = booked_on;
+        this.amount = amount;
+        this.adult = adult;
+        this.shopImage = shopImage;
+        this.shopLocation = shopLocation;
+        this.shopName = shopName;
+        this.status = status;
+        this.type = type;
+        this.userid = userid;
+        this.roomType = roomType;
+    }
 
     public HistoryModel(String rooms, String children, String check_out, String check_in, String booked_on,
                         String amount, String adult, String shopImage, String shopLocation, String shopName, String status, String type, String userid) {
@@ -31,6 +49,14 @@ public class HistoryModel {
         this.type = type;
         this.userid = userid;
 
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
     }
 
     public String getRooms() {

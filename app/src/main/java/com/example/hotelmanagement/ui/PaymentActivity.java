@@ -14,7 +14,7 @@ import com.example.hotelmanagement.utils.NetworkManager;
 public class PaymentActivity extends AppCompatActivity {
     private ActivityPaymentBinding binding;
     private String type;
-    String checkIn, checkOut, total,image,location,name;
+    String checkIn, checkOut, total, image, location, name, roomType;
     int adult, children, room;
 
     @Override
@@ -74,7 +74,7 @@ public class PaymentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 type = "direct";
                 if (NetworkManager.isNetworkAvailable(PaymentActivity.this)) {
-                     goToOrderSuccess();
+                    goToOrderSuccess();
                 } else {
                     binding.containerNoInternet.setVisibility(View.VISIBLE);
                 }
@@ -93,7 +93,8 @@ public class PaymentActivity extends AppCompatActivity {
         intent.putExtra("type", type);
         intent.putExtra("name", name);
         intent.putExtra("location", location);
-        intent.putExtra("image",image);
+        intent.putExtra("image", image);
+        intent.putExtra("roomType", roomType);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finishAffinity();
@@ -108,12 +109,13 @@ public class PaymentActivity extends AppCompatActivity {
             children = bundle.getInt("children");
             room = bundle.getInt("rooms");
             total = bundle.getString("total");
-            name= bundle.getString("name");
-            image= bundle.getString("image");
-            location= bundle.getString("location");
+            name = bundle.getString("name");
+            image = bundle.getString("image");
+            location = bundle.getString("location");
+            roomType = bundle.getString("roomType");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        binding.tvCash.setText("Amount to be paid : £"+ total);
+        binding.tvCash.setText("Amount to be paid : £" + total);
     }
 }

@@ -8,8 +8,10 @@ import android.view.View;
 import android.widget.DatePicker;
 
 import com.example.hotelmanagement.BaseActivity;
+import com.example.hotelmanagement.R;
 import com.example.hotelmanagement.databinding.ActivityBookingBinding;
 import com.example.hotelmanagement.ui.SummaryActivity;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.text.DateFormat;
@@ -23,6 +25,7 @@ public class BookingActivity extends BaseActivity {
     Bundle b;
     String price, checkIn, checkOut, calculatedPrice, image, location, name;
     private int maxLimit = 0;
+    private int roomType = 1;
     private int totalGuests = 0;
     private final int roomMaxLimit = 10;
     private int adult = 0;
@@ -45,6 +48,20 @@ public class BookingActivity extends BaseActivity {
         updateRoomLimit();
         binding.tvCheckIn.setOnClickListener(view -> showDatePicker("checkIn"));
         binding.tvCheckOut.setOnClickListener(view -> showDatePicker("checkOut"));
+        binding.chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup group, int checkedId) {
+                if (checkedId == R.id.chip_single) {
+                    roomType = 1;
+                    binding.layoutChildren.setVisibility(View.GONE);
+                } else {
+                    roomType = 3;
+                    binding.layoutChildren.setVisibility(View.VISIBLE);
+                }
+                updateRoomLimit();
+                refreshGuests();
+            }
+        });
         binding.btnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +76,7 @@ public class BookingActivity extends BaseActivity {
                     intent.putExtra("name", name);
                     intent.putExtra("location", location);
                     intent.putExtra("image", image);
+                    intent.putExtra("roomType",roomType);
                     startActivity(intent);
                 } else
                     showToast(BookingActivity.this, "Please add guests first");
@@ -152,9 +170,19 @@ public class BookingActivity extends BaseActivity {
     private void updateRoomLimit() {
         calculatedPrice = price;
         int roomCount = Integer.parseInt(binding.tvRooms.getText().toString());
-        maxLimit = roomCount * 3;
-        calculatedPrice = String.valueOf(Integer.parseInt(calculatedPrice) * roomCount);
+        maxLimit = roomCount * roomType;
+        if (roomType == 1)
+            calculatedPrice = String.valueOf(Integer.parseInt(calculatedPrice) * roomCount);
+        else
+            calculatedPrice = String.valueOf(Integer.parseInt(calculatedPrice) * roomCount * 2);
         binding.tvPrice.setText("Total amount: " + calculatedPrice + "£");
+    }
+
+    private void refreshGuests() {
+        binding.tvAdult.setText(String.valueOf(0));
+        binding.tvChildren.setText(String.valueOf(0));
+        adult = 0;
+        children = 0;
     }
 
 
@@ -225,32 +253,4 @@ public class BookingActivity extends BaseActivity {
         dialog.show();
     }
 
-    public void showConfirmDialog() {
-        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(BookingActivity.this);
-        builder.setTitle("Booking Confirmation");
-        builder.setMessage("Are you sure to confirm the booking?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(BookingActivity.this, SummaryActivity.class);
-                intent.putExtra("checkIn", checkIn);
-                intent.putExtra("checkOut", checkOut);
-                intent.putExtra("adult", adult);
-                intent.putExtra("children", children);
-                intent.putExtra("rooms", room);
-                intent.putExtra("total", calculatedPrice);
-                intent.putExtra("name", name);
-                intent.putExtra("location", location);
-                intent.putExtra("image", image);
-                startActivity(intent);
-                dialogInterface.dismiss();
-            }
-        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        }).show();
-
-    }
 }

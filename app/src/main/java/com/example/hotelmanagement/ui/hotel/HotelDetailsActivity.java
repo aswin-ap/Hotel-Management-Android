@@ -27,7 +27,7 @@ public class HotelDetailsActivity extends AppCompatActivity {
         binding.ivBack.setOnClickListener(view -> {
             finish();
         });
-      /*  binding.btnBook.setOnClickListener(new View.OnClickListener() {
+        binding.btnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(HotelDetailsActivity.this, BookingActivity.class);
@@ -39,7 +39,7 @@ public class HotelDetailsActivity extends AppCompatActivity {
                 i.putExtras(data);
                 startActivity(i);
             }
-        });*/
+        });
     }
 
     private void setFromIntent() {
